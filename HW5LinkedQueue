@@ -1,0 +1,61 @@
+public class HW5LinkedQueue<T> {
+    // linked queue
+    private static class Node<T> {
+        private T data;
+        private Node<T> next;
+
+        private Node(T data) {
+            this.data = data;
+        }
+    }
+
+    private Node<T> front;
+    private Node<T> rear;
+    private int size;
+
+    public void enqueue(T item) {
+        Node<T> node = new Node<>(item);
+        if (size == 0) {
+            front = node;
+        } else {
+            rear.next = node;
+        }
+        rear = node;
+        size++;
+    }
+
+    public T dequeue() {
+        if (size == 0) {
+            return null;
+        }
+
+        T item = front.data;
+        front = front.next;
+        size--;
+        if (front == null) {
+            rear = null;
+        }
+        return item;
+    }
+
+    public T peek() {
+        if (size == 0) {
+            return null;
+        }
+        return front.data;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void clear() {
+        front = null;
+        rear = null;
+        size = 0;
+    }
+}
