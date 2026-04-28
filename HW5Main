@@ -1,0 +1,30 @@
+import java.util.Arrays;
+
+public class HW5Main {
+    public static void main(String[] args) {
+        // testing array queue
+        HW5ArrayQueue<Integer> arrayQueue = new HW5ArrayQueue<>();
+        arrayQueue.enqueue(10);
+        arrayQueue.enqueue(20);
+        arrayQueue.enqueue(30);
+
+        System.out.println("Array queue dequeue: " + arrayQueue.dequeue());
+        System.out.println("Array queue peek: " + arrayQueue.peek());
+        System.out.println("Array queue size: " + arrayQueue.size());
+
+        // testing linked queue
+        HW5LinkedQueue<String> linkedQueue = new HW5LinkedQueue<>();
+        linkedQueue.enqueue("first");
+        linkedQueue.enqueue("second");
+        linkedQueue.enqueue("third");
+
+        System.out.println("Linked queue dequeue: " + linkedQueue.dequeue());
+        System.out.println("Linked queue peek: " + linkedQueue.peek());
+        System.out.println("Linked queue size: " + linkedQueue.size());
+
+        // testing radix sort
+        int[] values = {170, 45, 75, 90, 802, 24, 2, 66};
+        HW5RadixSort.sort(values);
+        System.out.println("Radix sort result: " + Arrays.toString(values));
+    }
+}
